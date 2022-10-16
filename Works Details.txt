@@ -1,0 +1,522 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+PS C:\Users\Mehdi> D:\Dj\
+D:\Dj\ : The term 'D:\Dj\' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the path is
+correct and try again.
+At line:1 char:1
++ D:\Dj\
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (D:\Dj\:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+
+
+    Directory: D:\Dj
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        10/16/2022  12:02 PM         181750 django-helpdesk-readthedocs-io-en-master.pdf
+
+
+PS D:\Dj> cd .\HelpDesk\
+PS D:\Dj\HelpDesk> ls
+
+
+    Directory: D:\Dj\HelpDesk
+
+
+----                 -------------         ------ ----
+d-----        10/16/2022  10:56 AM                django-helpdesk
+d-----        10/16/2022  10:54 AM                venv
+
+
+PS D:\Dj\HelpDesk> cd ..
+PS D:\Dj> ls
+
+
+    Directory: D:\Dj
+
+
+Mode                 LastWriteTime         Length Name
+d-----        10/16/2022  10:56 AM                HelpDesk
+-a----        10/16/2022  12:02 PM         206037 django-helpdesk-readthedocs-io-en-latest.pdf
+-a----        10/16/2022  12:02 PM         181750 django-helpdesk-readthedocs-io-en-master.pdf
+
+
+PS D:\Dj> mkdir HelpDesk01
+
+
+    Directory: D:\Dj
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/16/2022  12:22 PM                HelpDesk01
+
+
+PS D:\Dj> cd .\HelpDesk01\
+PS D:\Dj\HelpDesk01> virtualenv venv
+created virtual environment CPython3.8.10.final.0-64 in 290ms
+  creator CPython3Windows(dest=D:\Dj\HelpDesk01\venv, clear=False, no_vcs_ignore=False, global=False)
+  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=C:\Users\Mehdi\AppData\Local\pypa\virtualenv)
+ivator
+(venv) PS D:\Dj\HelpDesk01> ls
+
+
+    Directory: D:\Dj\HelpDesk01
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/16/2022  12:22 PM                venv
+
+
+(venv) PS D:\Dj\HelpDesk01> pip install django==3.2
+Collecting django==3.2
+  Using cached Django-3.2-py3-none-any.whl (7.9 MB)
+Collecting pytz
+  Using cached pytz-2022.4-py2.py3-none-any.whl (500 kB)
+Collecting sqlparse>=0.2.2
+  Using cached sqlparse-0.4.3-py3-none-any.whl (42 kB)
+Collecting asgiref<4,>=3.3.2
+  Using cached asgiref-3.5.2-py3-none-any.whl (22 kB)
+Installing collected packages: pytz, sqlparse, asgiref, django
+
+[notice] A new release of pip available: 22.2.2 -> 22.3
+(venv) PS D:\Dj\HelpDesk01> python.exe -m pip install --upgrade pip
+Requirement already satisfied: pip in d:\dj\helpdesk01\venv\lib\site-packages (22.2.2)
+Collecting pip
+  Using cached pip-22.3-py3-none-any.whl (2.1 MB)
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 22.2.2
+    Uninstalling pip-22.2.2:
+      Successfully uninstalled pip-22.2.2
+Successfully installed pip-22.3
+(venv) PS D:\Dj\HelpDesk01> django-admin.exe startproject BiskHd01
+(venv) PS D:\Dj\HelpDesk01> ls
+
+
+    Directory: D:\Dj\HelpDesk01
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/16/2022  12:25 PM                BiskHd01
+d-----        10/16/2022  12:22 PM                venv
+
+
+(venv) PS D:\Dj\HelpDesk01> py .\manage.py makemigrations
+(venv) PS D:\Dj\HelpDesk01> py .\manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+c:\users\mehdi\appdata\local\programs\python\python38\python.exe: can't open file '.\manage.pyrunserver': [Errno 2] No such file or directory
+(venv) PS D:\Dj\HelpDesk01> py .\manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 16, 2022 - 12:26:43
+Django version 3.2, using settings 'BiskHd01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+[16/Oct/2022 12:26:46] "GET / HTTP/1.1" 200 10697
+[16/Oct/2022 12:26:46] "GET /favicon.ico HTTP/1.1" 404 1997
+[16/Oct/2022 12:26:46] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 86184
+[16/Oct/2022 12:26:46] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 85876
+[16/Oct/2022 12:26:46] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 85692
+[16/Oct/2022 12:26:51] "GET / HTTP/1.1" 200 10697
+[16/Oct/2022 12:27:34] "GET / HTTP/1.1" 200 10697
+[16/Oct/2022 12:27:34] "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[16/Oct/2022 12:27:34] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 86184
+[16/Oct/2022 12:27:34] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 85876
+[16/Oct/2022 12:27:34] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 85692
+Not Found: /favicon.ico
+[16/Oct/2022 12:27:34] "GET /favicon.ico HTTP/1.1" 404 1997
+(venv) PS D:\Dj\HelpDesk01> git init
+(venv) PS D:\Dj\HelpDesk01> git add
+Nothing specified, nothing added.
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+>>
+Author identity unknown
+
+*** Please tell me who you are.
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'Mehdi@DESKTOP-BINT7FD.(none)')
+(venv) PS D:\Dj\HelpDesk01> git config --global pinktheory21@gmail.com
+error: invalid key: pinktheory21@gmail.com
+(venv) PS D:\Dj\HelpDesk01> git config --global user.email "pinktheory21@gmail.com"
+(venv) PS D:\Dj\HelpDesk01> git config --global user.name "Mehdi"
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        BiskHd01/
+        db.sqlite3
+        manage.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+(venv) PS D:\Dj\HelpDesk01> git add *
+(venv) PS D:\Dj\HelpDesk01> git commit -m "1st: Only Django==3.2 installed"
+[master (root-commit) 0302911] 1st: Only Django==3.2 installed
+ 11 files changed, 200 insertions(+)
+ create mode 100644 BiskHd01/__init__.py
+ create mode 100644 BiskHd01/__pycache__/__init__.cpython-38.pyc
+ create mode 100644 BiskHd01/__pycache__/settings.cpython-38.pyc
+ create mode 100644 BiskHd01/__pycache__/urls.cpython-38.pyc
+ create mode 100644 BiskHd01/__pycache__/wsgi.cpython-38.pyc
+ create mode 100644 BiskHd01/asgi.py
+ create mode 100644 BiskHd01/settings.py
+ create mode 100644 BiskHd01/urls.py
+ create mode 100644 BiskHd01/wsgi.py
+ create mode 100644 db.sqlite3
+ create mode 100644 manage.py
+(venv) PS D:\Dj\HelpDesk01> pip install djpip freeze
+ERROR: Could not find a version that satisfies the requirement djpip (from versions: none)
+ERROR: No matching distribution found for djpip
+(venv) PS D:\Dj\HelpDesk01> pip install djpip freezepip freeze
+ERROR: Could not find a version that satisfies the requirement djpip (from versions: none)
+ERROR: No matching distribution found for djpip
+(venv) PS D:\Dj\HelpDesk01> pip freeze
+asgiref==3.5.2
+Django==3.2
+pytz==2022.4
+sqlparse==0.4.3
+(venv) PS D:\Dj\HelpDesk01> ls
+
+
+    Directory: D:\Dj\HelpDesk01
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        10/16/2022  12:26 PM                BiskHd01
+d-----        10/16/2022  12:22 PM                venv
+-a----        10/16/2022  12:26 PM         131072 db.sqlite3
+-a----        10/16/2022  12:25 PM            686 manage.py
+
+
+(venv) PS D:\Dj\HelpDesk01> pip install django-helpdesk
+Collecting django-helpdesk
+  Downloading django-helpdesk-0.4.1.tar.gz (9.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.3/9.3 MB 6.2 MB/s eta 0:00:00
+  Preparing metadata (setup.py) ... done
+Requirement already satisfied: Django>=2.2 in d:\dj\helpdesk01\venv\lib\site-packages (from django-helpdesk) (3.2)
+Collecting django-bootstrap4-form
+  Using cached django-bootstrap4-form-4.0.1.tar.gz (4.4 kB)
+  Preparing metadata (setup.py) ... done
+Collecting celery
+  Using cached celery-5.2.7-py3-none-any.whl (405 kB)
+Collecting email-reply-parser
+  Using cached email_reply_parser-0.5.12-py3-none-any.whl (4.1 kB)
+Collecting akismet
+  Using cached akismet-1.2.1-py3-none-any.whl (5.1 kB)
+Collecting markdown
+  Using cached Markdown-3.4.1-py3-none-any.whl (93 kB)
+Collecting beautifulsoup4
+  Using cached beautifulsoup4-4.11.1-py3-none-any.whl (128 kB)
+Collecting lxml
+  Using cached lxml-4.9.1-cp38-cp38-win_amd64.whl (3.6 MB)
+Collecting simplejson
+  Using cached simplejson-3.17.6-cp38-cp38-win_amd64.whl (75 kB)
+Requirement already satisfied: pytz in d:\dj\helpdesk01\venv\lib\site-packages (from django-helpdesk) (2022.4)
+Collecting six
+  Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Collecting pinax_teams
+  Using cached pinax_teams-2.0.0-py3-none-any.whl (24 kB)
+Collecting djangorestframework
+  Using cached djangorestframework-3.14.0-py3-none-any.whl (1.1 MB)
+Collecting django-model-utils
+  Using cached django_model_utils-4.2.0-py3-none-any.whl (33 kB)
+Requirement already satisfied: setuptools in d:\dj\helpdesk01\venv\lib\site-packages (from django-helpdesk) (65.3.0)
+Requirement already satisfied: asgiref<4,>=3.3.2 in d:\dj\helpdesk01\venv\lib\site-packages (from Django>=2.2->django-helpdesk) (3.5.2)
+Requirement already satisfied: sqlparse>=0.2.2 in d:\dj\helpdesk01\venv\lib\site-packages (from Django>=2.2->django-helpdesk) (0.4.3)
+Collecting requests
+  Using cached requests-2.28.1-py3-none-any.whl (62 kB)
+Collecting soupsieve>1.2
+  Using cached soupsieve-2.3.2.post1-py3-none-any.whl (37 kB)
+Collecting click-repl>=0.2.0
+  Using cached click_repl-0.2.0-py3-none-any.whl (5.2 kB)
+Collecting billiard<4.0,>=3.6.4.0
+  Using cached billiard-3.6.4.0-py3-none-any.whl (89 kB)
+Collecting click<9.0,>=8.0.3
+  Using cached click-8.1.3-py3-none-any.whl (96 kB)
+Collecting click-didyoumean>=0.0.3
+  Using cached click_didyoumean-0.3.0-py3-none-any.whl (2.7 kB)
+Collecting kombu<6.0,>=5.2.3
+  Using cached kombu-5.2.4-py3-none-any.whl (189 kB)
+Collecting click-plugins>=1.1.1
+  Using cached click_plugins-1.1.1-py2.py3-none-any.whl (7.5 kB)
+Collecting vine<6.0,>=5.0.0
+  Using cached vine-5.0.0-py2.py3-none-any.whl (9.4 kB)
+Collecting importlib-metadata>=4.4
+  Using cached importlib_metadata-5.0.0-py3-none-any.whl (21 kB)
+Collecting django-reversion>=2.0.12
+  Using cached django_reversion-5.0.3-py3-none-any.whl (87 kB)
+Collecting pinax-invitations>=6.1.2
+  Using cached pinax_invitations-7.0.0-py3-none-any.whl (15 kB)
+Collecting Pillow>=2.3.0
+  Using cached Pillow-9.2.0-cp38-cp38-win_amd64.whl (3.3 MB)
+  Using cached django_user_accounts-3.2.0-py3-none-any.whl (110 kB)
+Collecting python-slugify>=3.0.4
+  Using cached python_slugify-6.1.2-py2.py3-none-any.whl (9.4 kB)
+Collecting colorama
+  Using cached colorama-0.4.5-py2.py3-none-any.whl (16 kB)
+Collecting prompt-toolkit
+  Using cached prompt_toolkit-3.0.31-py3-none-any.whl (382 kB)
+Collecting django-appconf>=1.0.4
+  Using cached django_appconf-1.0.5-py3-none-any.whl (6.4 kB)
+Collecting zipp>=0.5
+  Using cached zipp-3.9.0-py3-none-any.whl (5.8 kB)
+Collecting amqp<6.0.0,>=5.0.9
+  Using cached amqp-5.1.1-py3-none-any.whl (50 kB)
+Collecting text-unidecode>=1.3
+  Using cached text_unidecode-1.3-py2.py3-none-any.whl (78 kB)
+Collecting urllib3<1.27,>=1.21.1
+  Using cached urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+Collecting certifi>=2017.4.17
+  Using cached certifi-2022.9.24-py3-none-any.whl (161 kB)
+Collecting idna<4,>=2.5
+  Using cached idna-3.4-py3-none-any.whl (61 kB)
+Collecting charset-normalizer<3,>=2
+  Using cached charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+Collecting wcwidth
+  Using cached wcwidth-0.2.5-py2.py3-none-any.whl (30 kB)
+Building wheels for collected packages: django-helpdesk, django-bootstrap4-form
+  Building wheel for django-helpdesk (setup.py) ... done
+  Created wheel for django-helpdesk: filename=django_helpdesk-0.4.1-py3-none-any.whl size=10314292 sha256=51730e3f47f65b657526060fd9c25ab291e9e83bede257b359353a51f334f438
+  Stored in directory: c:\users\mehdi\appdata\local\pip\cache\wheels\4b\65\9f\677d06cda28bfcf8f205f3233a0b3b681a836933be61999549
+  Building wheel for django-bootstrap4-form (setup.py) ... done
+  Created wheel for django-bootstrap4-form: filename=django_bootstrap4_form-4.0.1-py3-none-any.whl size=5856 sha256=7b8e68e71cbd13e4484396e03ed9c589c8a73cafb6250eb5952e21c19a5cec0e
+  Stored in directory: c:\users\mehdi\appdata\local\pip\cache\wheels\7d\cb\d3\56a2b9a21076c8b51c5cfbf7cf2398bf7b310f58e6e4163a36
+Successfully built django-helpdesk django-bootstrap4-form
+Installing collected packages: wcwidth, text-unidecode, email-reply-parser, billiard, zipp, vine, urllib3, soupsieve, six, simplejson, python-slugify, prompt-toolkit, Pillow, lxml, idna, colorama, charset-normalizer, certifi, requests, importlib-metadata, djangorestframework, django-reversion, django-model-utils, django-bootstrap4-form, django-appconf, click, beautifulsoup4, amqp, markdown, kombu, django-user-accounts, click-repl, click-plugins, click-didyoumean, akismet, pinax-invitations, celery, pinax_teams, django-helpdesk
+-1.1.1 click-repl-0.2.0 colorama-0.4.5 django-appconf-1.0.5 django-bootstrap4-form-4.0.1 django-helpdesk-0.4.1 django-model-utils-4.2.0 django-reversion-5.0.3 django-user-accounts-3.2.0 djangorestframework-3.14.0 email-reply-parser-0.5.12 idna-3.4 importlib-metadata-5.0.0 kombu-5.2.4 lxml-4.9.1 markdown-3.4.1 pinax-invitations-7.0.0 pinax_teams-2.0.0 prompt-toolkit-3.0.31 python-slugify-6.1.2 requests-2.28.1 simplejson-3.17.6 six-1.16.0 soupsieve-2.3.2.post1 text-unidecode-1.3 urllib3-1.26.12 vine-5.0.0 wcwidth-0.2.5 zipp-3.9.0
+(venv) PS D:\Dj\HelpDesk01> pip freeze
+akismet==1.2.1
+amqp==5.1.1
+asgiref==3.5.2
+beautifulsoup4==4.11.1
+billiard==3.6.4.0
+celery==5.2.7
+certifi==2022.9.24
+charset-normalizer==2.1.1
+click==8.1.3
+click-didyoumean==0.3.0
+click-plugins==1.1.1
+click-repl==0.2.0
+colorama==0.4.5
+django-appconf==1.0.5
+django-bootstrap4-form==4.0.1
+django-helpdesk==0.4.1
+django-model-utils==4.2.0
+django-reversion==5.0.3
+django-user-accounts==3.2.0
+djangorestframework==3.14.0
+email-reply-parser==0.5.12
+idna==3.4
+importlib-metadata==5.0.0
+kombu==5.2.4
+lxml==4.9.1
+Markdown==3.4.1
+Pillow==9.2.0
+pinax-invitations==7.0.0
+pinax-teams==2.0.0
+prompt-toolkit==3.0.31
+python-slugify==6.1.2
+pytz==2022.4
+requests==2.28.1
+simplejson==3.17.6
+six==1.16.0
+soupsieve==2.3.2.post1
+sqlparse==0.4.3
+text-unidecode==1.3
+urllib3==1.26.12
+vine==5.0.0
+wcwidth==0.2.5
+zipp==3.9.0
+(venv) PS D:\Dj\HelpDesk01>
+(venv) PS D:\Dj\HelpDesk01> py .\manage.py makemigrations
+Migrations for 'account':
+  venv\lib\site-packages\account\migrations\0006_auto_20221016_1538.py
+    - Alter field id on account
+    - Alter field id on accountdeletion
+    - Alter field id on emailaddress
+    - Alter field id on emailconfirmation
+    - Alter field id on passwordexpiry
+    - Alter field id on passwordhistory
+    - Alter field id on signupcode
+    - Alter field id on signupcoderesult
+Migrations for 'pinax_invitations':
+  venv\lib\site-packages\pinax\invitations\migrations\0003_auto_20221016_1538.py
+    - Alter field id on invitationstat
+    - Alter field id on joininvitation
+Migrations for 'pinax_teams':
+  venv\lib\site-packages\pinax\teams\migrations\0005_auto_20221016_1538.py
+    - Alter field id on membership
+    - Alter field id on simplemembership
+    - Alter field id on simpleteam
+    - Alter field id on team
+(venv) PS D:\Dj\HelpDesk01> py .\manage.py migrate
+Operations to perform:
+  Apply all migrations: account, admin, auth, contenttypes, helpdesk, pinax_invitations, pinax_teams, reversion, sessions, sites
+Running migrations:
+  Applying account.0001_initial... OK
+  Applying account.0002_fix_str... OK
+  Applying account.0004_auto_20170416_1821... OK
+  Applying account.0005_update_default_language... OK
+  Applying account.0006_auto_20221016_1538... OK
+  Applying pinax_invitations.0001_initial... OK
+  Applying pinax_teams.0001_initial... OK
+  Applying pinax_teams.0003_auto_20170416_1752... OK
+  Applying pinax_teams.0004_auto_20170511_0856... OK
+  Applying helpdesk.0002_populate_usersettings... OK
+  Applying helpdesk.0003_initial_data_import... OK
+  Applying helpdesk.0004_add_per_queue_staff_membership... OK
+  Applying helpdesk.0005_queues_no_null... OK
+  Applying helpdesk.0006_email_maxlength... OK
+  Applying helpdesk.0007_max_length_by_integer... OK
+  Applying helpdesk.0008_extra_for_permissions... OK
+  Applying helpdesk.0009_migrate_queuemembership... OK
+  Applying helpdesk.0010_remove_queuemembership... OK
+  Applying helpdesk.0011_admin_related_improvements... OK
+  Applying helpdesk.0012_queue_default_owner... OK
+  Applying helpdesk.0013_email_box_local_dir_and_logging... OK
+  Applying helpdesk.0014_usersettings_related_name... OK
+  Applying helpdesk.0015_expand_permission_name_size... OK
+  Applying helpdesk.0016_alter_model_options... OK
+  Applying helpdesk.0017_default_owner_on_delete_null... OK
+  Applying helpdesk.0018_ticket_secret_key... OK
+  Applying helpdesk.0019_ticket_secret_key... OK
+  Applying helpdesk.0020_depickle_user_settings... OK
+  Applying helpdesk.0021_voting_tracker... OK
+  Applying helpdesk.0022_add_submitter_email_id_field_to_ticket... OK
+  Applying helpdesk.0023_add_enable_notifications_on_email_events_to_ticket... OK
+  Applying helpdesk.0024_time_spent... OK
+  Applying helpdesk.0025_queue_dedicated_time... OK
+  Applying helpdesk.0026_kbitem_attachments... OK
+  Applying helpdesk.0027_auto_20200107_1221... OK
+  Applying helpdesk.0028_kbitem_team... OK
+  Applying helpdesk.0029_kbcategory_public... OK
+  Applying helpdesk.0030_add_kbcategory_name... OK
+  Applying helpdesk.0031_auto_20200225_1440... OK
+  Applying helpdesk.0032_kbitem_enabled... OK
+  Applying helpdesk.0033_ticket_merged_to... OK
+  Applying helpdesk.0034_create_email_template_for_merged... OK
+  Applying helpdesk.0035_alter_email_on_ticket_change... OK
+  Applying helpdesk.0036_add_attachment_validator... OK
+  Applying pinax_invitations.0002_auto_20170416_1756... OK
+  Applying pinax_invitations.0003_auto_20221016_1538... OK
+  Applying pinax_teams.0005_auto_20221016_1538... OK
+  Applying reversion.0001_squashed_0004_auto_20160611_1202... OK
+  Applying reversion.0002_add_index_on_version_for_content_type_and_db... OK
+  Applying sites.0001_initial... OK
+  Applying sites.0002_alter_domain_unique... OK
+(venv) PS D:\Dj\HelpDesk01> py .\manage.py createsuperuser
+Username (leave blank to use 'mehdi'):
+Email address: pinktheory21@gmail.com
+Password:
+Password (again):
+Superuser created successfully.
+(venv) PS D:\Dj\HelpDesk01> py .\manage.pyrunserver
+c:\users\mehdi\appdata\local\programs\python\python38\python.exe: can't open file '.\manage.pyrunserver': [Errno 2] No such file or directory
+(venv) PS D:\Dj\HelpDesk01> py .\manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 16, 2022 - 15:39:27
+Django version 3.2, using settings 'BiskHd01.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+Not Found: /
+[16/Oct/2022 15:39:40] "GET / HTTP/1.1" 404 2055
+[16/Oct/2022 15:39:48] "GET /helpdesk HTTP/1.1" 301 0
+There are no public queues defined - public ticket creation is impossible
+[16/Oct/2022 15:39:48] "GET /helpdesk/ HTTP/1.1" 200 10497
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 200 2615
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/morrisjs/morris.css HTTP/1.1" 200 433
+ 200 5799
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 59305
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 162017
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/css/sb-admin.css HTTP/1.1" 200 6871
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/helpdesk-extend.css HTTP/1.1" 200 1905
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/jquery-ui/jquery-ui.css HTTP/1.1" 200 34810
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/jquery-easing/jquery.easing.min.js HTTP/1.1" 200 2532
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/datatables/js/dataTables.bootstrap4.js HTTP/1.1" 200 4693
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 200 83253
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/datatables/js/buttons.colVis.js HTTP/1.1" 200 5405
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/datatables/js/dataTables.buttons.js HTTP/1.1" 200 49398
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/jquery/jquery.min.js HTTP/1.1" 200 89501
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/js/sb-admin.js HTTP/1.1" 200 1191
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/metisMenu/metisMenu.min.js HTTP/1.1" 200 5807
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/js/init_due_date.js HTTP/1.1" 200 82
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/datatables/js/jquery.dataTables.js HTTP/1.1" 200 448564
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/js/init_datetime_classes.js HTTP/1.1" 200 299
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/helpdesk-customize.css HTTP/1.1" 200 0
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/chart.js/Chart.min.js HTTP/1.1" 200 159638
+[16/Oct/2022 15:39:48] "GET /static/helpdesk/vendor/jquery-ui/jquery-ui.min.js HTTP/1.1" 200 253669
+[16/Oct/2022 15:39:49] "GET /static/helpdesk/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 78268
+There are no public queues defined - public ticket creation is impossible
+[16/Oct/2022 15:39:59] "GET /helpdesk/tickets/submit/ HTTP/1.1" 200 8855
+[16/Oct/2022 15:41:39] "GET /static/helpdesk/vendor/jquery-ui/images/ui-icons_444444_256x240.png HTTP/1.1" 200 7006
+[16/Oct/2022 15:43:02] "GET /admin/ HTTP/1.1" 302 0
+[16/Oct/2022 15:43:02] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 2214
+[16/Oct/2022 15:43:03] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2271
+[16/Oct/2022 15:43:03] "GET /static/admin/css/login.css HTTP/1.1" 200 939
+[16/Oct/2022 15:43:03] "GET /static/admin/css/base.css HTTP/1.1" 200 19513
+[16/Oct/2022 15:43:03] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18545
+[16/Oct/2022 15:43:03] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 1360
+[16/Oct/2022 15:43:03] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[16/Oct/2022 15:43:03] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+[16/Oct/2022 15:43:03] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+[16/Oct/2022 15:43:05] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[16/Oct/2022 15:43:05] "GET /admin/ HTTP/1.1" 200 14050
+[16/Oct/2022 15:43:05] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 380
+[16/Oct/2022 15:43:05] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[16/Oct/2022 15:43:05] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[16/Oct/2022 15:43:05] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 304 0
+(venv) PS D:\Dj\HelpDesk01> git branch -M main
+(venv) PS D:\Dj\HelpDesk01> git remote add origin https://github.com/anxious01210/HelpDesk01.git
+(venv) PS D:\Dj\HelpDesk01> git push -u origin main
+info: please complete authentication in your browser...
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (14/14), done.
+Writing objects: 100% (15/15), 9.61 KiB | 4.81 MiB/s, done.
+Total 15 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/anxious01210/HelpDesk01.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+(venv) PS D:\Dj\HelpDesk01> https://psgn.english.britishcouncil.org/Login/Login.aspx?programID=62a4499f-0607-4987-b864-4082d77e341
+(venv) PS D:\Dj\HelpDesk01>                                                                           
